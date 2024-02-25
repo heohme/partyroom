@@ -1,0 +1,31 @@
+{
+  "name": "defirstmo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "preinstall": "[ -d ./.hooks ] && (git config --add core.hooksPath ./.hooks) || ([ -d ./.git ] && formula githooks || echo 'Please run git init')",
+    "dev": "node predev.js",
+    "publish": "formula publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.devops.xiaohongshu.com:fe/defirstmo.git"
+  },
+  "author": "heohme <jingubang2008@126.com>",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "@xhs/launcher": "latest",
+    "@xhs/launcher-plugin-anti-spam": "^2.2.0",
+    "@xhs/launcher-plugin-auth": "latest",
+    "@xhs/launcher-plugin-eaglet": "latest",
+    "@xhs/ozone-share": "latest",
+    "@xhs/ozone-bridge": "latest",
+    "@xhs/ozone-detector": "latest",
+    "@xhs/reds-h5": "latest",
+    "@xhs/reds-h5-style": "latest"
+  },
+  "devDependencies": {
+    "@xhs/formula-plugin-swc": "latest"
+  }
+}
