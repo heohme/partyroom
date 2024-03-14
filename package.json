@@ -5,7 +5,6 @@
   "scripts": {
     "preinstall": "[ -d ./.hooks ] && (git config --add core.hooksPath ./.hooks) || ([ -d ./.git ] && formula githooks || echo 'Please run git init')",
     "dev": "formula dev",
-    "build": "formula build -e test && formula build -t node -e test",
     "publish": "formula publish"
   },
   "repository": {
