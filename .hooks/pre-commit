@@ -1,0 +1,31 @@
+#!/bin/sh
+
+namespace="\033[34mformula\033[0m"
+
+# detect whether formula installed
+
+command -v formula >/dev/null 2>&1 || {
+  echo >&2 "Can't find formula installed, install it by 'npm i -g @xhs/formula-cli' first."
+  exit 1
+}
+
+exec 1>&2
+
+files=$(git diff --name-only --diff-filter=duxb --cached | sed -e "s/[[:space:]]/\n/g")
+files=$(echo "$files" | sed -n -E '/\.(js|ts|tsx|wpy|vue)$/p') # only lint js, ts, tsx, wpy, vue files
+
+# no staged files, exit 0
+if [ ${#files} -eq 0 ]
+then
+  exit 0
+fi
+
+echo "[$namespace] Start linting..."
+formula lint file $files # here has a trick: "$files" would keep newlines, but $files won't
+
+if [ "$?" -ne 0 ]
+then
+  echo "[$namespace] Lint failed, fix all errors above and commit again."
+  echo "[$namespace] Some errors may be fixed by 'formula lint --fix'.\n"
+  exit 1
+fi
