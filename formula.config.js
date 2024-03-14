@@ -83,6 +83,7 @@ module.exports = {
   // bundleCheck: {
   //   esVersion: 6
   // },
+  bundleCheck: false,
   babelVue: true,
   chainWebpack: (chain) => {
     // formula-cli提速插件，暂不支持tsx https://code.devops.xiaohongshu.com/fe/web/formula-plugin-swc
