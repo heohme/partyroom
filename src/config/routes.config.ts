@@ -1,10 +1,10 @@
 import { LauncherOptions } from '@xhs/launcher'
 // import { RouteLocationNormalizedLoaded } from 'vue-router'
 // import { getSourceFromRoute, getTrackData } from '../utils/track'
-import Main from '../pages/Main.vue'
 
 // 主页面入口地址
 const HomePath = '/fe/buyer-h5'
+const Main = () => import(/* webpackChunkName: "Root" */ '../pages/Main.vue')
 
 const routes: LauncherOptions['routes'] = [
   {
@@ -12,8 +12,8 @@ const routes: LauncherOptions['routes'] = [
     redirect: HomePath,
   },
   {
-    name: 'home',
-    path: HomePath,
+    name: 'Home',
+    path: `${HomePath}`,
     component: Main,
     meta: {
       title: '小红书',
