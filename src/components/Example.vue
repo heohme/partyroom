@@ -27,6 +27,8 @@
 
   const BG_IMG = '//picasso-static.xiaohongshu.com/fe-platform/f355f7640cb66f856c5a97aec0fd03a4ea97b10f.jpg';
 
+  // test
+
   // 需要改造成接口方式
   const RIGHTS_CONFIG = {
     title: "专属权益",
