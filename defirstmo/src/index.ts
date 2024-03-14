@@ -21,7 +21,7 @@ app.use(authPlugin, authConfig)
 app.use(antiSpamPlugin)
 app.use(eagletPlugin, {
   // 全局埋点
-  // tracker: () => import('@xhs/protobuf-defirstmo-tracker'),
+  // tracker: () => import('@xhs/protobuf-buyer-h5-tracker'),
   apm: {
     // 业务 js Error 自定义
     jsError: customApmJsError,

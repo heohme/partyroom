@@ -4,7 +4,7 @@ import { LauncherOptions } from '@xhs/launcher'
 import Main from '../pages/Main.vue'
 
 // 主页面入口地址
-const HomePath = '/fe/defirstmo'
+const HomePath = '/fe/buyer-h5'
 
 const routes: LauncherOptions['routes'] = [
   {

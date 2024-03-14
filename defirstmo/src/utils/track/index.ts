@@ -1,7 +1,7 @@
 import { RouteLocationNormalizedLoaded } from 'vue-router'
 import { eaglet } from '@xhs/launcher-plugin-eaglet'
 // TODO：需要修改为业务指定的 tracker 包
-import { tracker } from '@xhs/protobuf-defirstmo-tracker'
+// import { tracker } from '@xhs/protobuf-buyer-h5-tracker'
 
 export type TParams = {
   [key: string]: string | number
@@ -13,7 +13,8 @@ export type TParams = {
  * @param trackId
  */
 export function getTrackData(id: number, params?: TParams): Record<string, unknown> {
-  return tracker[id](params) || {}
+  // return tracker[id](params) || {}
+  return {};
 }
 
 /**

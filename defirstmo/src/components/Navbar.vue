@@ -1,6 +1,6 @@
 <template>
   <NavBar
-    title="小红书"
+    title="繁星计划"
     class="my-nav"
     :show-left-arrow="true"
     :fixed="true"
@@ -42,5 +42,4 @@
 </script>
 
 <style lang="stylus" scoped>
-
 </style>

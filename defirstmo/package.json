@@ -1,17 +1,17 @@
 {
-  "name": "defirstmo",
+  "name": "buyer-h5",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "preinstall": "[ -d ./.hooks ] && (git config --add core.hooksPath ./.hooks) || ([ -d ./.git ] && formula githooks || echo 'Please run git init')",
-    "dev": "node predev.js",
+    "dev": "formula dev",
     "publish": "formula publish"
   },
   "repository": {
     "type": "git",
-    "url": "git@code.devops.xiaohongshu.com:fe/defirstmo.git"
+    "url": "git@code.devops.xiaohongshu.com:fe/buyer-h5.git"
   },
-  "author": "heohme <jingubang2008@126.com>",
+  "author": "heqingyang <heqingyang@xiaohongshu.com>",
   "license": "ISC",
   "private": true,
   "dependencies": {
