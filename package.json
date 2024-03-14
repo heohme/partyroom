@@ -1,10 +1,11 @@
 {
-  "name": "buyer-h5",
+  "name": "defirstmo",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "preinstall": "[ -d ./.hooks ] && (git config --add core.hooksPath ./.hooks) || ([ -d ./.git ] && formula githooks || echo 'Please run git init')",
     "dev": "formula dev",
+    "build": "formula build -e test && formula build -t node -e test",
     "publish": "formula publish"
   },
   "repository": {
