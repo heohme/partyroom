@@ -14,7 +14,8 @@ export type TParams = {
  */
 export function getTrackData(id: number, params?: TParams): Record<string, unknown> {
   // return tracker[id](params) || {}
-  return {};
+  console.log(id, params)
+  return {}
 }
 
 /**

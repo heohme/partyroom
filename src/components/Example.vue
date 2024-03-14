@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Alert, Icon } from '@xhs/reds-h5'
-  import Details from '~/assets/svg/details.svg';
   import { ref } from 'vue'
+  import Details from '~/assets/svg/details.svg'
 
   // 任务文案管理
   // todo：联调时要改为接口下发
@@ -19,48 +19,48 @@
   ·x月x日x小时x分，笔记标题：xxx，预估奖励：xx曝光
   `
 
-  const TASK_GROUP_LINK = 'https://school.xiaohongshu.com/lesson/normal/efe778213fab47f989fb0ec2fe85ed77?jumpFrom=school';
+  const TASK_GROUP_LINK = 'https://school.xiaohongshu.com/lesson/normal/efe778213fab47f989fb0ec2fe85ed77?jumpFrom=school'
 
   const DEEPLINK_CREATE = 'xhsdiscover://post_new_note?attach=%7B%22topics%22%3A%5B%7B%22page_id%22%3A%2265f17f4c3d9e550001caedc1%22%7D%5D%7D&config=%7B%7D&page=%7B%7D'
 
-  const RULE_LINK = 'https://ditto.devops.xiaohongshu.com/editor?id=30881a6b219b43a28d668bb8ad138cf1&channel=ds';
+  const RULE_LINK = 'https://ditto.devops.xiaohongshu.com/editor?id=30881a6b219b43a28d668bb8ad138cf1&channel=ds'
 
-  const BG_IMG = '//picasso-static.xiaohongshu.com/fe-platform/f355f7640cb66f856c5a97aec0fd03a4ea97b10f.jpg';
+  const BG_IMG = '//picasso-static.xiaohongshu.com/fe-platform/f355f7640cb66f856c5a97aec0fd03a4ea97b10f.jpg'
 
   // test
 
   // 需要改造成接口方式
   const RIGHTS_CONFIG = {
-    title: "专属权益",
+    title: '专属权益',
     rights_list: [{
       icon: '//picasso-static.xiaohongshu.com/fe-platform/c8644f4179809c592932ea9bfefbb96b5bc062ca/icon1.png',
       title: '优质笔记享叠加投流',
       tips: '三大任务为优质带货笔记加持流量！',
       actionText: '查看',
       actionType: 1,
-      actionExtra: "快参与上方活动任务吧，符合要求即可获得流量加持哦～"
-    },{
+      actionExtra: '快参与上方活动任务吧，符合要求即可获得流量加持哦～',
+    }, {
       icon: '//picasso-static.xiaohongshu.com/fe-platform/33158c3f414c0563f33a93856fb1c6c46ef536cc/icon2.png',
       title: '「低价开单好物」频道',
       tips: '官方甄选货盘，助力笔记快速出单～',
       actionText: '选品',
       actionType: 2,
-      actionExtra: "//fe.xiaohongshu.com/ds/vincent/125524203f3741439e12d022e755683b?naviHidden=yes&fullscreen=true&disableCenterDragBack=true&ds_role=true&source=creator_task"
-    },{
+      actionExtra: '//fe.xiaohongshu.com/ds/vincent/125524203f3741439e12d022e755683b?naviHidden=yes&fullscreen=true&disableCenterDragBack=true&ds_role=true&source=creator_task',
+    }, {
       icon: '//picasso-static.xiaohongshu.com/fe-platform/69c104b6165b75cec0ea67b4218ebfb1331fba69/icon3.png',
       title: '小红书「人气红榜」',
       tips: '众多买手都在推荐的爆款商品榜单～',
       actionText: '选品',
       actionType: 2,
-      actionExtra: "xhsdiscover://rn/dspyxis/compass/redrank"
-    },{
+      actionExtra: 'xhsdiscover://rn/dspyxis/compass/redrank',
+    }, {
       icon: '//picasso-static.xiaohongshu.com/fe-platform/1e46182a54cb976bcc1deee65fefd36c73cefece/icon4.png',
       title: '爆款购物笔记素材库',
       tips: '共享爆款素材，跟着“学作业”就够了',
       actionText: '查看',
       actionType: 2,
-      actionExtra: "//school.xiaohongshu.com/lesson/normal/317bd2af21374a40a915aa263c9684ac?jumpFrom=school"
-    }]
+      actionExtra: '//school.xiaohongshu.com/lesson/normal/317bd2af21374a40a915aa263c9684ac?jumpFrom=school',
+    }],
   }
 
   const title = ref()
@@ -71,74 +71,97 @@
   const isMono = ref(false)
   const isBtnRounded = ref(false)
 
-
-  const numberFormat = (num) => {
-    if(num >= 10000) {
-      return (num/10000).toFixed(2) + '万'
-    }else return num;
+  const numberFormat = num => {
+    if (num >= 10000) {
+      return `${(num / 10000).toFixed(2)}万`
+    } return num
   }
 
-  // actionType定义：
-  // 1：文字弹窗
-  // 2：link链接
-  const linkAction = (item: { actionType: number; actionExtra: string; }) => {
-    switch(item.actionType){
-      case 1:
-        show.value = true;
-        message.value = item.actionExtra;
-        isBtnRounded.value = true;
-        break;
-      case 2:
-        goLink(item.actionExtra);
-        break;
-    }
+  const goLink = (link:string) => {
+    window.open(link)
   }
 
-  const goLink= (link:string) => {
-    window.open(link);
-  }
-
-  const closeAlert= () => {
-    show.value = false;
+  const closeAlert = () => {
+    show.value = false
   }
 
   const openRewardRule = () => {
-    show.value = true;
-    title.value = '规则说明';
-    message.value = TASK_RULES;
+    show.value = true
+    title.value = '规则说明'
+    message.value = TASK_RULES
     isBtnRounded.value = true
   }
 
   const openRewardDetail = () => {
     show.value = true
     title.value = '奖励详情'
-    message.value= REWARD_DETAILS;
+    message.value = REWARD_DETAILS
     isBtnRounded.value = true
+  }
+
+  // actionType定义：
+  // 1：文字弹窗
+  // 2：link链接
+  const linkAction = (item: { actionType: number; actionExtra: string }) => {
+    switch (item.actionType) {
+      case 1:
+        show.value = true
+        message.value = item.actionExtra
+        isBtnRounded.value = true
+        break
+      case 2:
+        goLink(item.actionExtra)
+        break
+      default:
+        break
+    }
   }
 
 </script>
 
-
 <template>
   <div class="container">
-    <img :src="BG_IMG" class="bg-img" alt="">
-    <div class="bg-rules" @click="goLink(RULE_LINK)">活动规则</div>
+    <img
+      :src="BG_IMG"
+      class="bg-img"
+      alt=""
+    >
+    <div
+      class="bg-rules"
+      @click="goLink(RULE_LINK)"
+    >活动规则</div>
     <div class="task-component">
       <div class="task-header">
         <div class="task-header-title">每周发布优质带货笔记</div>
-        <div class="task-header-tips" @click="openRewardRule">
+        <div
+          class="task-header-tips"
+          @click="openRewardRule"
+        >
           多发多得～多发笔记奖励更多
-          <Icon  :icon="Details" size="14px"></Icon>
-          </div>
-        <div class="task-header-reward" @click="openRewardDetail">本周可获得 <span class="task-header-reward-highlight">{{numberFormat(233333)}}</span> 流量 ></div>
+          <Icon
+            :icon="Details"
+            size="14px"
+          />
+        </div>
+        <div
+          class="task-header-reward"
+          @click="openRewardDetail"
+        >本周可获得 <span class="task-header-reward-highlight">{{ numberFormat(233333) }}</span> 流量 ></div>
       </div>
       <div class="task-group">
         <div class="task-item">
           <div class="task-item-content">每周发布第 1 篇，得600 曝光/篇</div>
-          <div class="task-item-status disabled" v-if="'2' === '1'">
+          <div
+            v-if="'2' === '1'"
+            class="task-item-status disabled"
+          >
             已完成
           </div>
-          <div class="task-item-status active" v-if="'2' === '2'" @click="goLink(DEEPLINK_CREATE)">
+          <div
+            v-if="'2' === '2'"
+            class="task-item-status active"
+            @click="goLink(DEEPLINK_CREATE)"
+          >
             去完成
           </div>
         </div>
@@ -148,21 +171,26 @@
             未开始
           </div>
         </div>
-        <div class="task-group-tips" @click="goLink(TASK_GROUP_LINK)">
+        <div
+          class="task-group-tips"
+          @click="goLink(TASK_GROUP_LINK)"
+        >
           <div class="task-group-tips-text"> 优质购物笔记发布攻略，看这里就够了～ </div>
           <div>></div>
         </div>
-      </div>  
+      </div>
     </div>
     <div class="task-component">
       <div class="task-header">
         <div class="task-header-title">{{ RIGHTS_CONFIG.title }}</div>
       </div>
       <div class="task-group-link">
-        
 
-
-        <div class="task-link" v-for="(item, index) in RIGHTS_CONFIG.rights_list">
+        <div
+          v-for="(item, index) in RIGHTS_CONFIG.rights_list"
+          v-bind:key="index"
+          class="task-link"
+        >
           <div class="task-link-icon">
             <img :src="item.icon">
           </div>
@@ -170,7 +198,10 @@
             <div class="task-link-content-title">{{ item.title }}</div>
             <div class="task-link-content-tips">{{ item.tips }}</div>
           </div>
-          <div class="task-link-action" @click="linkAction(item)">{{ item.actionText }}</div>
+          <div
+            class="task-link-action"
+            @click="linkAction(item)"
+          >{{ item.actionText }}</div>
         </div>
       </div>
     </div>
@@ -183,7 +214,7 @@
     :is-btn-rounded="isBtnRounded"
     :is-btn-mono="isMono"
     confirm-text="确认"
-    messageAlign="left"
+    message-align="left"
     :cancel-text="cancelText"
     :footer-layout="footerLayout"
     @maskClick="closeAlert"
@@ -366,9 +397,5 @@
       }
     }
   }
-
-
-
-
 
 </style>: number: { actionType: any; actionText: string; }
