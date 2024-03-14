@@ -80,8 +80,17 @@ module.exports = {
     enable: true // 设置为 true 可开启面板，默认值为 false
   },
   // 活动测需要兼容到 es6
-  bundleCheck: {
-    esVersion: 6
+  // bundleCheck: {
+  //   esVersion: 6
+  // },
+  bundleCheck: false,
+  babel: {
+    include: [
+      // path.resolve(__dirname, './node_modules/'),
+    ],
+    plugins: [
+      // require.resolve('xxx')
+    ]
   },
   babelVue: true,
   chainWebpack: (chain) => {
