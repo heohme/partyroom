@@ -9,11 +9,13 @@ const Main = () => import(/* webpackChunkName: "Root" */ '../pages/Main.vue')
 const routes: LauncherOptions['routes'] = [
   {
     path: '/',
-    redirect: HomePath,
+    redirect: {
+      name: 'Home',
+    },
   },
   {
     name: 'Home',
-    path: `${HomePath}`,
+    path: `${HomePath}/home`,
     component: Main,
     meta: {
       title: '小红书',
