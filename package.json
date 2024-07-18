@@ -1,31 +1,22 @@
 {
-  "name": "defirstmo",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "preinstall": "[ -d ./.hooks ] && (git config --add core.hooksPath ./.hooks) || ([ -d ./.git ] && formula githooks || echo 'Please run git init')",
-    "dev": "formula dev",
-    "publish": "formula publish"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@code.devops.xiaohongshu.com:fe/buyer-h5.git"
-  },
-  "author": "heqingyang <heqingyang@xiaohongshu.com>",
-  "license": "ISC",
+  "name": "zoo",
   "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
   "dependencies": {
-    "@xhs/launcher": "latest",
-    "@xhs/launcher-plugin-anti-spam": "^2.2.0",
-    "@xhs/launcher-plugin-auth": "latest",
-    "@xhs/launcher-plugin-eaglet": "latest",
-    "@xhs/ozone-share": "latest",
-    "@xhs/ozone-bridge": "latest",
-    "@xhs/ozone-detector": "latest",
-    "@xhs/reds-h5": "latest",
-    "@xhs/reds-h5-style": "latest"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
-    "@xhs/formula-plugin-swc": "latest"
+    "@rsbuild/core": "1.0.1-beta.0",
+    "@rsbuild/plugin-react": "1.0.1-beta.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.2"
   }
 }

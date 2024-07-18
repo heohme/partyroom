@@ -21,7 +21,7 @@ then
 fi
 
 echo "[$namespace] Start linting..."
-formula lint file $files # here has a trick: "$files" would keep newlines, but $files won't
+# formula lint file $files # here has a trick: "$files" would keep newlines, but $files won't
 
 if [ "$?" -ne 0 ]
 then
