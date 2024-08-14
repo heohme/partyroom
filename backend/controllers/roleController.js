@@ -22,12 +22,31 @@ const getRoleById = async (req, res) => {
 };
 
 const createRole = async (req, res) => {
-  try {
-    const newRole = new Role(req.body);
-    const savedRole = await newRole.save();
-    res.status(201).json(savedRole);
-  } catch (error) {
-    res.status(400).json({ message: '创建角色失败' });
+    try {
+      const { name, permissions } = req.body;
+  
+      // 检查角色名是否已存在
+      const existingRole = await Role.findOne({ name });
+      if (existingRole) {
+        return res.status(400).json({ message: '该角色名已存在' });
+      }
+  
+      // 创建新角色
+      const newRole = new Role({
+        name,
+        permissions
+      });
+  
+      // 保存到数据库
+      const savedRole = await newRole.save();
+  
+      res.status(201).json({
+        message: '角色创建成功',
+        role: savedRole
+      });
+    } catch (error) {
+      console.error('创建角色时出错:', error);
+      res.status(500).json({ message: '创建角色失败', error: error.message });
   }
 };
 

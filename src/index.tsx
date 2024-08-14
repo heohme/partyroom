@@ -7,6 +7,7 @@ import {
 
 import App from './pages/Home'
 import Role from './pages/Role'
+import Room from './pages/Room'
 
 import ErrorPage from './pages/Error'
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/role',
     element: <Role />,
+  },
+  {
+    path: '/Room',
+    element: <Room />,
   },
 ])
 
