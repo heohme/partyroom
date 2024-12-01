@@ -16,7 +16,7 @@ Start the dev server:
 pnpm dev
 ```
 
-Build the app for production:
+Build the app for productionßß:
 
 ```bash
 pnpm build
@@ -27,3 +27,6 @@ Preview the production build locally:
 ```bash
 pnpm preview
 ```
+
+
+RS start demo
